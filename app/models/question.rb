@@ -1,4 +1,5 @@
 class Question < ApplicationRecord
+  has_many :user_answers
   belongs_to :course_module
 
   validates :question_text, presence: true
