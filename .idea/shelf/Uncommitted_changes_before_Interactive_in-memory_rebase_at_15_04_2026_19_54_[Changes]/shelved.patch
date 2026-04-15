@@ -1,0 +1,18 @@
+Index: app/controllers/sessions_controller.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>class SessionsController < ApplicationController\n  def new\n  end\n\n  def create\n    user = User.find_by(email: params[:email])\n    if user && user.authenticate(params[:password])\n      # Salva o ID do usuário na sessão (Login efetuado!)\n      session[:user_id] = user.id\n      redirect_to root_path\n    else\n      flash.now[:alert] = \"E-mail ou senha inválidos.\"\n      render :new, status: :unprocessable_entity\n    end\n  end\n\n  def destroy\n    session[:user_id] = nil\n    redirect_to root_path\n  end\nend\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/controllers/sessions_controller.rb b/app/controllers/sessions_controller.rb
+--- a/app/controllers/sessions_controller.rb	(revision 61ea33912323bc69a015678cee50179a3635b67f)
++++ b/app/controllers/sessions_controller.rb	(date 1776293655284)
+@@ -5,7 +5,6 @@
+   def create
+     user = User.find_by(email: params[:email])
+     if user && user.authenticate(params[:password])
+-      # Salva o ID do usuário na sessão (Login efetuado!)
+       session[:user_id] = user.id
+       redirect_to root_path
+     else
