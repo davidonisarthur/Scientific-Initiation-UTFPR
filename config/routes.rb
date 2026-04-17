@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :course_modules, only: [:index]
+  resources :course_modules, only: [:index, :show]
 
   get "course_modules/index"
   root "home#index"
