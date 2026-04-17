@@ -1,4 +1,39 @@
-<div style="text-align: center; margin-top: 50px;">
-  <h1>Bem-vindo ao MathQuizz! 🧮</h1>
-  <p>Aprenda matemática de forma acessível e interativa.</p>
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center items-center px-4">
+  <div class="max-w-3xl w-full text-center space-y-8">
+
+    <h1 class="text-5xl font-extrabold text-gray-900 tracking-tight">
+      Bem-vindo ao <span class="text-blue-600">MathQuizz</span> 🧮
+    </h1>
+
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+      Aprenda matemática de forma acessível e interativa. Resolva questões, assista a explicações em Libras e acompanhe o seu progresso.
+    </p>
+
+    <div class="mt-10 bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
+      <% if logged_in? %>
+        <h2 class="text-2xl font-bold text-gray-800 mb-2">
+          Olá, <%= current_user.name %>! 👋
+        </h2>
+        <p class="text-gray-600 mb-6">Você está pronto para continuar seus estudos?</p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <button class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-sm hover:bg-blue-700 transition-colors">
+            Ver Módulos do Curso
+          </button>
+
+          <%= button_to "Sair da Conta", logout_path, method: :delete, class: "px-6 py-3 bg-white text-gray-700 font-bold border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition-colors" %>
+        </div>
+
+      <% else %>
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Comece agora mesmo!</h2>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <%= link_to "Criar Minha Conta", signup_path, class: "px-6 py-3 bg-blue-600 text-white font-bold rounded-lg shadow-sm hover:bg-blue-700 transition-colors" %>
+
+          <%= link_to "Já tenho conta (Entrar)", login_path, class: "px-6 py-3 bg-white text-gray-700 font-bold border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 transition-colors" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
 </div>
