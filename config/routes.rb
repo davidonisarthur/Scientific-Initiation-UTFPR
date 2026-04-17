@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :course_modules, only: [:index]
+
+  get "course_modules/index"
   root "home#index"
 
   get "signup", to: "users#new", as: :signup

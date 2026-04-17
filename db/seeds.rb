@@ -1,9 +1,11 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+puts "Limpando módulos antigos..."
+CourseModule.destroy_all
+
+puts "Criando novos módulos..."
+CourseModule.create!([
+                       { title: "Módulo 1: Frações", description: "Entenda o conceito básico de frações, numeradores e denominadores.", order: 1 },
+                       { title: "Módulo 2: Geometria Plana", description: "Aprenda sobre triângulos, quadrados e cálculo de áreas.", order: 2 },
+                       { title: "Módulo 3: Equações do 1º Grau", description: "Descubra o valor de X resolvendo problemas práticos.", order: 3 }
+                     ])
+
+puts "Módulos criados com sucesso!"
