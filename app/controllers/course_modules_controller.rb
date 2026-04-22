@@ -5,5 +5,6 @@ class CourseModulesController < ApplicationController
 
   def show
     @module = CourseModule.find(params[:id])
+    @questions = @module.questions
   end
 end
