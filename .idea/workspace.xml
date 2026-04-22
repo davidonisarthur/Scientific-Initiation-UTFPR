@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="357334bc-281c-4692-9273-920a928c45f5" name="Changes" comment="fix:route name fixed">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="357334bc-281c-4692-9273-920a928c45f5" name="Changes" comment="feat: add show page for course modules and link from index">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,8 +30,8 @@
     "RunOnceActivity.ruby.rubocop.migration.global.runOnSaveToExternalFormatter": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1776387915766",
-    "git-widget-placeholder": "feat/course__modules__index",
+    "com.intellij.lang.ruby.rbs.tools.collection.workspace.sync.RbsCollectionUpdateProjectActivity#LAST_UPDATE_TIMESTAMP": "1776883002407",
+    "git-widget-placeholder": "feat/display__module__questions",
     "nodejs_package_manager_path": "npm",
     "ruby.structure.view.model.defaults.configured": "true",
     "settings.editor.selected.configurable": "editor.preferences.fonts.default",
@@ -146,6 +143,7 @@
       <workItem from="1776293228470" duration="316000" />
       <workItem from="1776293625762" duration="2380000" />
       <workItem from="1776387856933" duration="3108000" />
+      <workItem from="1776882937285" duration="697000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add current_user helper and update dynamic landing page">
       <option name="closed" value="true" />
@@ -163,7 +161,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776389170895</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: add show page for course modules and link from index">
+      <option name="closed" value="true" />
+      <created>1776392314131</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776392314131</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +189,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add current_user helper and update dynamic landing page" />
     <MESSAGE value="fix:route name fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:route name fixed" />
+    <MESSAGE value="feat: add show page for course modules and link from index" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add show page for course modules and link from index" />
   </component>
 </project>
