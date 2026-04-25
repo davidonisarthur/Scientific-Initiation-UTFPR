@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :course_modules, only: [:index, :show]
+  resources :course_modules, only: [ :index, :show ]
 
   get "course_modules/index"
   root "home#index"
 
+  post "questions/:question_id/answers", to: "user_answers#create", as: :question_answers
   get "signup", to: "users#new", as: :signup
   post "users", to: "users#create"
 
