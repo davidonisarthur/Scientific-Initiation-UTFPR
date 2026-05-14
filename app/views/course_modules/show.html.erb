@@ -38,19 +38,44 @@
               <span class="text-blue-600 mr-2"><%= index + 1 %>)</span><%= question.question_text %>
             </h3>
 
-            <%= form_with url: question_answers_path(question), method: :post, local: true, class: "w-full mt-4" do |f| %>
-              <div class="space-y-3">
-                <% ['a', 'b', 'c', 'd'].each do |option| %>
-                  <label class="block p-3 border rounded-lg bg-gray-50 text-gray-700 cursor-pointer hover:bg-blue-50 transition-colors flex items-center">
-                    <%= f.radio_button :user_choice, option, class: "mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300" %>
-                    <span class="font-bold mr-2 text-gray-900"><%= option.upcase %>.</span>
-                    <%= question.send("option_#{option}") %>
-                  </label>
+            <% user_answer = current_user.user_answers.find_by(question_id: question.id) %>
+            
+            <% if user_answer %>
+              <div class="mt-4 p-5 rounded-lg border <%= user_answer.correct ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200' %>">
+                <div class="flex items-center mb-3">
+                  <span class="text-2xl mr-2"><%= user_answer.correct ? '✅' : '❌' %></span>
+                  <p class="font-bold text-lg <%= user_answer.correct ? 'text-green-800' : 'text-red-800' %>">
+                    <%= user_answer.correct ? 'Você acertou esta questão!' : 'Você errou esta questão.' %>
+                  </p>
+                </div>
+                
+                <p class="text-gray-700 mb-1">
+                  Sua resposta: <span class="font-bold uppercase text-gray-900"><%= user_answer.user_choice %></span>
+                </p>
+
+                <% if !user_answer.correct %>
+                  <p class="text-gray-700">
+                    A resposta correta era: <span class="font-bold uppercase text-green-700"><%= question.correct_answer %></span>
+                  </p>
                 <% end %>
               </div>
 
-              <%= f.submit "Responder Questão", class: "mt-6 w-full py-2 px-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer" %>
+            <% else %>
+              <%= form_with url: question_answers_path(question), method: :post, local: true, class: "w-full mt-4" do |f| %>
+                <div class="space-y-3">
+                  <% ['a', 'b', 'c', 'd'].each do |option| %>
+                    <label class="block p-3 border rounded-lg bg-gray-50 text-gray-700 cursor-pointer hover:bg-blue-50 transition-colors flex items-center">
+                      <%= f.radio_button :user_choice, option, class: "mr-3 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300" %>
+                      <span class="font-bold mr-2 text-gray-900"><%= option.upcase %>.</span>
+                      <%= question.send("option_#{option}") %>
+                    </label>
+                  <% end %>
+                </div>
+
+                <%= f.submit "Responder Questão", class: "mt-6 w-full py-2 px-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer" %>
+              <% end %>
             <% end %>
+            
           </div>
 
         </div>
