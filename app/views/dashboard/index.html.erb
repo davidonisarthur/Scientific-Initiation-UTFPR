@@ -1,0 +1,50 @@
+<div class="max-w-6xl mx-auto mt-10 px-4 pb-12">
+  
+  <div class="mb-8">
+    <h1 class="text-3xl font-extrabold text-gray-900">Meu Painel de Progresso</h1>
+    <p class="text-gray-600 mt-2">Acompanhe o seu desempenho no MathQuizz, <%= current_user.name || 'Aluno' %>.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+    
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center">
+      <div class="p-4 rounded-full bg-blue-100 text-blue-600 mr-4">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Questões Respondidas</p>
+        <p class="text-3xl font-bold text-gray-900"><%= @answered_count %> <span class="text-lg text-gray-400 font-normal">/ <%= @total_questions %></span></p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center">
+      <div class="p-4 rounded-full bg-green-100 text-green-600 mr-4">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Total de Acertos</p>
+        <p class="text-3xl font-bold text-gray-900"><%= @correct_count %></p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center">
+      <div class="p-4 rounded-full bg-purple-100 text-purple-600 mr-4">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+      </div>
+      <div>
+        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Taxa de Acerto</p>
+        <p class="text-3xl font-bold text-gray-900"><%= @accuracy %>%</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl shadow-md p-8 text-white text-center md:text-left flex flex-col md:flex-row items-center justify-between">
+    <div>
+      <h2 class="text-2xl font-bold mb-2">Pronto para o próximo desafio?</h2>
+      <p class="text-blue-100 mb-6 md:mb-0">Acesse a lista de módulos e continue praticando matemática em Libras.</p>
+    </div>
+    <%= link_to "Ir para os Módulos", course_modules_path, class: "bg-white text-blue-700 font-bold py-3 px-8 rounded-full shadow hover:bg-gray-50 transition-colors whitespace-nowrap" %>
+  </div>
+
+</div>
